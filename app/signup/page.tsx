@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
 import toast, { Toaster } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 const steps = [
   { title: 'Personal Info', fields: ['name', 'email'] },
@@ -31,6 +32,8 @@ export default function SignUpPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const router = useRouter();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -43,14 +46,13 @@ export default function SignUpPage() {
 
     if (currentStep >= steps.length - 1) {
       setTimeout(() => {
-        toast.error("Failed To Sign In");
-      }, 3000)
+        toast.success("Account Created Successfully");
+      }, 1500)
 
       setTimeout(() => {
-        window.location.reload();
-      }, 5000)
+        router.push('/');
+      }, 2500)
     }
-
   }
 
   const progress = ((currentStep) / steps.length) * 100
@@ -68,7 +70,7 @@ export default function SignUpPage() {
           <div className="max-w-md mx-auto">
             <div className="bg-background/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
               <h1 className="text-3xl font-bold mb-6 text-center">Create Your Account</h1>
-              <Progress value={progress} className="mb-6" />
+              <Progress value={progress || 5} className="mb-6 border border-blue-300" />
               <form onSubmit={handleSubmit} className="space-y-4">
                 {progress >= 100 ? (
                   <div className='flex flex-col gap-3 my-5 justify-center items-center'>
