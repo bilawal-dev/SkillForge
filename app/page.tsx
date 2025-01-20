@@ -3,6 +3,7 @@ import Hero from './components/hero'
 import Features from './components/features'
 import HowItWorks from './components/how-it-works'
 import Footer from './components/footer'
+import LearningJourney from './components/learning-journey'
 
 export default function LandingPage() {
   return (
@@ -10,11 +11,11 @@ export default function LandingPage() {
       <Header />
       <main>
         <Hero />
-        <Features />
+        <LearningJourney />
         <HowItWorks />
+        <Features />
       </main>
       <Footer />
     </div>
   )
 }
-

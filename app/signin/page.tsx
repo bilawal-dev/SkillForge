@@ -7,20 +7,34 @@ import Footer from '../components/footer'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import toast, { Toaster } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const router = useRouter();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle sign-in logic here
-    console.log('Sign in with:', email, password)
+
+    setEmail('');
+    setPassword('');
+
+    setTimeout(() => {
+      toast.success("Successfully Signed In");
+
+      router.push("/");
+    }, 500)
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background-alt">
       <Header />
+
+      <Toaster />
+
       <main className="pt-20">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md mx-auto">
@@ -53,11 +67,6 @@ export default function SignInPage() {
                   Sign In
                 </Button>
               </form>
-              <div className="mt-4 text-center">
-                <Link href="/forgot-password" className="text-primary hover:underline">
-                  Forgot your password?
-                </Link>
-              </div>
               <div className="mt-6 text-center">
                 <p>Don't have an account?{' '}
                   <Link href="/signup" className="text-primary hover:underline">

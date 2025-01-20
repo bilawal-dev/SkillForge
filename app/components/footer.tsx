@@ -1,10 +1,28 @@
+"use client";
+
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast"
 
 export default function Footer() {
+
+  const [email, setEmail] = useState('');
+
+  function handleMessageSubmit(event: React.FormEvent) {
+    event.preventDefault();
+
+    setEmail('');
+    
+    toast.success("Subscribed To Newsletter!");
+  }
+
   return (
     <footer className="bg-white pt-16 pb-5">
+
+      <Toaster />
+
       <div className="container mx-auto px-6 lg:px-12">
         {/* Top Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -56,13 +74,15 @@ export default function Footer() {
             <p className="text-sm text-foreground/80 mb-4">
               Subscribe to our newsletter to receive updates, tips, and exclusive content straight to your inbox.
             </p>
-            <form className="flex flex-col sm:flex-row items-stretch space-y-4 sm:space-y-0 sm:space-x-4">
+            <form onSubmit={handleMessageSubmit} className="flex flex-col sm:flex-row items-stretch space-y-4 sm:space-y-0 sm:space-x-4">
               <Input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="flex-1 rounded-full px-4 py-2 shadow-md focus:ring focus:ring-primary/40"
               />
-              <Button type="reset" className="rounded-full px-8 py-2 shadow-md">
+              <Button type="submit" className="rounded-full px-8 py-2 shadow-md">
                 Subscribe
               </Button>
             </form>

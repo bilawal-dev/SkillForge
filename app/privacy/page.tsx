@@ -56,16 +56,6 @@ export default function PrivacyPolicyPage() {
                   </AccordionItem>
                 ))}
               </Accordion>
-              <div className="mt-8">
-                <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-                <p>
-                  If you have any questions about this Privacy Policy, please contact us at{' '}
-                  <a href="mailto:privacy@skillforge.com" className="text-primary hover:underline">
-                    privacy@skillforge.com
-                  </a>
-                  .
-                </p>
-              </div>
             </div>
           </div>
         </section>

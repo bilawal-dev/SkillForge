@@ -49,7 +49,7 @@ export default function HowItWorks() {
                   </div>
                   <div className="w-1/2 p-4">
                     <div className="bg-background/50 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 line-clamp-2">{step.title}</h3>
                       <p className="text-foreground/80">{step.description}</p>
                     </div>
                   </div>
