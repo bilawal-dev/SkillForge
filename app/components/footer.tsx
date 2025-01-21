@@ -90,28 +90,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-foreground/10">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-foreground/60">
+        <div className="mt-16 pt-5 border-t border-foreground/10">
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <p className="text-sm text-foreground/60 text-center">
               © {new Date().getFullYear()} SkillForge. All rights reserved.
             </p>
-            <ul className="flex space-x-6 mt-4 md:mt-0">
-              <li>
-                <Link href="/privacy" className="text-sm text-foreground/80 hover:text-blue-700 transition">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-foreground/80 hover:text-blue-700 transition">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm text-foreground/80 hover:text-blue-700 transition">
-                  Contact
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
